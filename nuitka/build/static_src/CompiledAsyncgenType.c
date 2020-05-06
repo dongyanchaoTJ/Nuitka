@@ -913,9 +913,6 @@ static void Nuitka_Asyncgen_tp_dealloc(struct Nuitka_AsyncgenObject *asyncgen) {
         asyncgen->m_frame = NULL;
     }
 
-    assert(Py_REFCNT(asyncgen) == 1);
-    Py_REFCNT(asyncgen) = 0;
-
     // Now it is safe to release references and memory for it.
     Nuitka_GC_UnTrack(asyncgen);
 
